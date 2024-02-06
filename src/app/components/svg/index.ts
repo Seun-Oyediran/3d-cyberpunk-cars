@@ -1,0 +1,12 @@
+export { default as ArrowUp } from "./arrow-up";
+export { default as BigBarcode } from "./big-barcode";
+export { default as BottomRight } from "./bottom-right";
+export { default as ButtonRectangle } from "./button-rectangle";
+export { default as Globe } from "./globe";
+export { default as Next } from "./next";
+export { default as Polygon } from "./polygon";
+export { default as Prev } from "./prev";
+export { default as Rectangle } from "./rectangle";
+export { default as SmallBarcode } from "./small-barcode";
+export { default as Triangle } from "./triangle";
+export { default as Vol } from "./vol";

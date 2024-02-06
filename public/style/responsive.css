@@ -1,0 +1,94 @@
+/* xl */
+@media (max-width: 1279px) {
+  .app__content__wrapper {
+    padding: 30px 60px;
+  }
+}
+
+@media (max-width: 940px) {
+  .app__content__wrapper {
+    padding: 15px 30px;
+  }
+}
+
+/* md */
+@media (max-width: 767px) {
+  .app__content__wrapper {
+    padding: 10px 16px;
+  }
+
+  .app__top__content__box__left h2 {
+    font-size: 26px;
+  }
+
+  .app__top__content__box__left p {
+    font-size: 12px;
+  }
+
+  .app__top__content__box__right h2 {
+    font-size: 26px;
+  }
+
+  .app__top__content__box__right p {
+    font-size: 9px;
+  }
+
+  .app__top__chinese {
+    margin-top: 20px;
+  }
+
+  .app__top__chinese p {
+    font-size: 9px;
+  }
+
+  .app__bottom__content__left p {
+    font-size: 10px;
+  }
+}
+
+/* sm */
+@media (max-width: 639px) {
+  .app__top__content__box,
+  .app__bottom__content {
+    display: block;
+  }
+
+  .app__top__content__box__left,
+  .app__top__content__box__right {
+    border: none;
+    max-width: unset;
+  }
+
+  .app__top__content__box__right {
+    border-top: 1px solid var(--text-color);
+  }
+
+  .app__bottom__content__left,
+  .app__bottom__content__right {
+    max-width: unset;
+  }
+
+  .app__bottom__content__right {
+    display: none;
+  }
+
+  .app__bottom__content .designed_by {
+    display: block;
+    margin-top: 1rem;
+    text-align: right;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 580px) {
+  .app__middle__content__button__con {
+    display: block;
+  }
+
+  .app__middle__content__button__con .next,
+  .app__middle__content__button__con .prev {
+    flex: 1;
+    max-width: unset;
+    /* width: 100%; */
+  }
+}
