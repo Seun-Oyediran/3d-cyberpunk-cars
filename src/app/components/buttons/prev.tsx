@@ -8,14 +8,16 @@ interface IProps {
   prevDisabled: boolean;
 }
 
+const originalWord = "gPrevious";
+const characters =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
 const Prev = (props: IProps) => {
   const { handlePrev, prevDisabled } = props;
   const container = useRef<HTMLDivElement | null>(null);
   const tl = useRef<GSAPTimeline>();
   const { contextSafe } = useGSAP({ scope: container });
-  const originalWord = "gPrevious";
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const shouldPlay = useRef(true);
 
   const [_isReplacing, setIsReplacing] = useState(false);
   const [currentLetters, setCurrentLetters] = useState(originalWord.split(""));
@@ -74,14 +76,25 @@ const Prev = (props: IProps) => {
   useEffect(() => {
     let ctx = gsap.context(() => {
       tl.current = gsap
-        .timeline({ paused: true, repeat: 0 })
-        .to(".white__bg", { translateX: "0%" });
+        .timeline({
+          paused: true,
+          defaults: {
+            duration: 0.4,
+            ease: "power1.inOut",
+          },
+        })
+        .from(".white__bg", { xPercent: -100 })
+        .call(() => {
+          !shouldPlay.current && tl!.current!.pause();
+        })
+        .to(".white__bg", { xPercent: 200 });
     }, container);
     return () => ctx.revert();
   }, []);
 
   const onMouseEnter = contextSafe(() => {
-    tl.current?.play();
+    shouldPlay.current = false;
+    tl?.current!.restart();
 
     gsap.to(".next__text", {
       color: "#0000000",
@@ -91,14 +104,15 @@ const Prev = (props: IProps) => {
     });
   });
 
-  const onMouseLeave = contextSafe(async () => {
+  const onMouseLeave = contextSafe(() => {
+    shouldPlay.current = true;
+    tl?.current!.play();
     gsap.to(".next__text", {
       color: "#ffffff",
     });
     gsap.to(".rect__svg__path", {
       stroke: "#ffffff",
     });
-    tl.current?.reverse();
   });
 
   return (
