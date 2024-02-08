@@ -201,6 +201,7 @@ body {
 .app__middle__content__button__con .next .rectangle svg,
 .app__middle__content__button__con .prev .rectangle svg {
   width: 100%;
+  height: 100%;
 }
 
 .app__middle__content__button__con .button__con .white__bg {

@@ -78,6 +78,33 @@
     text-align: right;
     font-size: 10px;
   }
+
+  .app__middle__content {
+    display: flex;
+    flex: 1;
+  }
+
+  .app__middle__content .app__middle__content__button__con {
+    flex: 1;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+  }
+
+  .app__middle__content__button__con .button__con {
+    height: 32px;
+    max-width: 132px;
+  }
+
+  .app__middle__content__button__con .next,
+  .app__middle__content__button__con .prev {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .app__middle__content__button__con .next span,
+  .app__middle__content__button__con .prev span {
+    margin-bottom: 2px;
+  }
 }
 
 @media (max-width: 580px) {

@@ -16,6 +16,16 @@ const Content = (props: IProps) => {
   const container = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowContent(true);
+    }, 1500);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  useEffect(() => {
     setShowContent(false);
     const timeout = setTimeout(() => {
       setShowContent(true);
