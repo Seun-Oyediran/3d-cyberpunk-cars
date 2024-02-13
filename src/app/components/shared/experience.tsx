@@ -1,10 +1,8 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
-import { Lights } from ".";
 import {
   CameraControls,
   Environment,
   Grid,
-  Loader,
   OrbitControls,
   PerspectiveCamera,
   RenderTexture,
@@ -101,7 +99,7 @@ const Experience = (props: IProps) => {
         }}
         ref={cameraRef}
       />
-      <Loader />
+
       <Grid
         position-y={-viewport.height / 2}
         sectionSize={1}
